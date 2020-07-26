@@ -7,7 +7,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t zhang/docker-react -f Dockerfile.dev .
+  - docker build -t huiqzhang/docker-react -f Dockerfile.dev .
 
 scripts:
-  - docker run zhang/docker-react npm run test -- --coverage
+  - docker run huiqzhang/docker-react npm run test -- --coverage
