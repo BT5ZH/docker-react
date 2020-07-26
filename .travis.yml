@@ -1,0 +1,13 @@
+# Tell Travis we need a copy of docker running
+# Build our image using Dockerfile.dev
+# Tell Travis how to run our test suite
+# Tell Travis how to deploy our code to AWS
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t zhang/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run zhang/docker-react npm run test -- --coverage
