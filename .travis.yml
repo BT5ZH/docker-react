@@ -8,3 +8,15 @@ before_install:
 
 scripts:
   - docker run -e CI=true huiqzhang619/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "cn-northwest-1"
+  app: "quan-docker"
+  env: "QuanDocker-env"
+  bucket_name: "elasticbeanstalk-cn-northwest-1-796401082536"
+  bucket_path: "quan-docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
